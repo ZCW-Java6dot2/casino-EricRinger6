@@ -29,8 +29,9 @@ public class Craps extends DiceGame implements GamblingGame {
     //Game start
     public void gameOn() {
         firstRoll = true;
-        playerHasMoney();
+        playerMoneyStart();
         while(firstRoll) {
+            playerHasMoney();
             extraRoll = true;
             rollBet();
             while(extraRoll) {
@@ -96,10 +97,20 @@ public class Craps extends DiceGame implements GamblingGame {
         }
     }
 
+    public void playerMoneyStart() {
+        if(playerMoney >= 1) {
+
+        } else if (playerMoney < 1) {
+            Menu menu = new Menu(console);
+            console.println("Come back when you have money!!!");
+            menu.selectGame();
+        }
+    }
+
     public void checkPlayerBet() {
         betAmt = getPlayerBet();
         if(betAmt > player.getPlayerMoney()) {
-            console.println("need more cash");
+            console.println("Need more cash to play!!!");
             firstRoll = false;
         }
     }
