@@ -57,6 +57,9 @@ public class Blackjack implements GamblingGame {
             if(playerBet > playerMoney) {
                 System.out.println("You can't bet what you don't have!");
                 continue;
+            } else if(playerBet <= 0) {
+                console.println("You can't bet a negative amount");
+                continue;
             }
 
             //deals two cards each to player and dealer
@@ -212,7 +215,7 @@ public class Blackjack implements GamblingGame {
     }
 
     public double getPlayerBet() {
-        console.println("You currently have " + playerMoney);
+        console.println("You currently have $" + playerMoney);
         double playerBet = console.getDoubleInput("How much would you like to bet on this hand?");
         return playerBet;
     }
