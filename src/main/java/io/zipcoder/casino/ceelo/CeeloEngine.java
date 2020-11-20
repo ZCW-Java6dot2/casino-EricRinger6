@@ -49,7 +49,7 @@ public class CeeloEngine {
                 diceTossedComp = Toss();
             }
             console.println(determineWinner());
-            if(compareToss() != 2) {
+            if(compareToss(compare, diceTossedPlayer,diceTossedComp) != 2) {
                 isPlaying = tryAgain();
             }
         }
@@ -79,10 +79,10 @@ public class CeeloEngine {
         else if (comboType == 1){
             result = menu.youWon();
         }
-        else if(compareToss() == 0){
+        else if(compareToss(compare,diceTossedPlayer,diceTossedComp) == 0){
             result = menu.youWon();
         }
-        else if(compareToss() == 1){
+        else if(compareToss(compare,diceTossedPlayer,diceTossedComp) == 1){
             result = menu.youLose();
         }
         else{
@@ -96,11 +96,17 @@ public class CeeloEngine {
     public void promptRoll() {
         boolean loop = true;
         while (loop) {
-            Integer userInput = console.getIntegerInput(menu.promptRoll());
-            if (userInput == 1) {
-                loop = false;
-            }
+            loop = rolling();
         }
+    }
+
+    public boolean rolling() {
+        boolean loop = true;
+        Integer userInput = console.getIntegerInput(menu.promptRoll());
+        if (userInput == 1) {
+            loop = false;
+        }
+        return loop;
     }
 
     public ArrayList<Integer> Toss(){
@@ -165,7 +171,7 @@ public class CeeloEngine {
         return loop;
     }
 
-    public Integer compareToss() {
+    public Integer compareToss(Integer[] compare, ArrayList<Integer>player1, ArrayList<Integer>player2) {
         Integer winner = 2;
         if(compare[0] > compare[1]){
             winner = 0;
@@ -175,25 +181,25 @@ public class CeeloEngine {
         }
         else {
             if(compare[0] == 2){
-                winner = compareTriples();
+                winner = compareTriples(player1, player2);
             }
             else{
-                winner =comparePoints();
+                winner =comparePoints(player1, player2);
             }
         }
         return winner;
     }
 
-    public Integer comparePoints() {
+    public Integer comparePoints(ArrayList<Integer> player1, ArrayList<Integer> player2) {
         Integer winner = 2;
         Integer playerSingleton = 0;
         Integer compSingleton = 0;
-        for(int i = 0; i<diceTossedPlayer.size();i++){
-            if(Collections.frequency(diceTossedPlayer, diceTossedPlayer.get(i))==1){
-                playerSingleton = diceTossedPlayer.get(i);
+        for(int i = 0; i<player1.size();i++){
+            if(Collections.frequency(player1, player1.get(i))==1){
+                playerSingleton = player1.get(i);
             }
-            if(Collections.frequency(diceTossedComp,diceTossedComp.get(i))==1){
-                compSingleton = diceTossedComp.get(i);
+            if(Collections.frequency(player2,player2.get(i))==1){
+                compSingleton = player2.get(i);
             }
         }
         if(playerSingleton>compSingleton){
@@ -205,12 +211,12 @@ public class CeeloEngine {
         return winner;
     }
 
-    public Integer compareTriples() {
+    public Integer compareTriples(ArrayList<Integer> player1, ArrayList<Integer> player2) {
         Integer winner = 2;
-        if(diceTossedPlayer.get(0)>diceTossedComp.get(0)){
+        if(player1.get(0)>player2.get(0)){
             winner = 0;
         }
-        else if (diceTossedPlayer.get(0)<diceTossedComp.get(0)){
+        else if (player1.get(0)<player2.get(0)){
             winner = 1;
         }
         return winner;
