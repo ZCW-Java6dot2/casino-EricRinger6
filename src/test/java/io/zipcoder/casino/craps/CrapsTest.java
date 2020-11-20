@@ -1,27 +1,60 @@
 package io.zipcoder.casino.craps;
-import io.zipcoder.casino.core.DiceGame;
-import io.zipcoder.casino.core.Player;
-import io.zipcoder.casino.utilities.Console;
-import org.junit.Assert;
+
 import org.junit.Test;
-import java.awt.image.AreaAveragingScaleFilter;
-import java.util.ArrayList;
-import static org.junit.Assert.assertEquals;
 
+import static org.junit.Assert.*;
 
-/*public class CrapsTest {
-   ArrayList<Integer> testArr;
-   Craps craps = new Craps(); // ITS NULL RIGHT NOW if you solve this you can have morre test cases
-    DiceGame diceGame = new DiceGame();
-    Console console = new Console(System.in, System.out);
-      Player player = new Player();*/
-    //@Test
-   /* public void getDie() {
-        ArrayList<Integer> dieArr = new ArrayList<Integer>();
-        Integer dieNum = 2;
-        craps.getDie();
-        System.out.println(craps.dieArr);
-          Assert.assertTrue(dieArr.size() == dieNum);
-               Integer dieNum = 0;
-       testArr = diceGame.tossAndList(2);
-    }*/
+public class CrapsTest {
+
+    @Test
+    public void gameOn() {
+    }
+
+    @Test
+    public void getDie() {
+    }
+
+    @Test
+    public void rollBet() {
+    }
+
+    @Test
+    public void extraRollBet() {
+    }
+
+    @Test
+    public void playAgainStr() {
+    }
+
+    @Test
+    public void playAgainBoo() {
+    }
+
+    @Test
+    public void playerHasMoney() {
+    }
+
+    @Test
+    public void checkPlayerBet() {
+    }
+
+    @Test
+    public void getBetAmt() {
+    }
+
+    @Test
+    public void getPlayerBet() {
+    }
+
+    @Test
+    public void displayPlayerWallet() {
+    }
+
+    @Test
+    public void youWin() {
+    }
+
+    @Test
+    public void youLose() {
+    }
+}

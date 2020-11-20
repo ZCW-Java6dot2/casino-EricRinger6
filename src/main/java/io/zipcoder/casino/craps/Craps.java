@@ -9,7 +9,6 @@ public class Craps extends DiceGame implements GamblingGame {
     DiceGame diceGame;
     Console console;
     Player player;
-    Menu menu;
     private Integer extraDieVal;
     ArrayList<Integer> dieRolls;
     ArrayList<Integer> dieArr = new ArrayList<Integer>();
@@ -30,9 +29,9 @@ public class Craps extends DiceGame implements GamblingGame {
     //Game start
     public void gameOn() {
         firstRoll = true;
+        playerHasMoney();
         while(firstRoll) {
             extraRoll = true;
-            playerHasMoney();
             rollBet();
             while(extraRoll) {
                 extraRollBet();
@@ -90,9 +89,13 @@ public class Craps extends DiceGame implements GamblingGame {
         if(playerMoney >= 1) {
             //hasMoney = 1;
             checkPlayerBet();
-        } else if (playerMoney < 0) {
+        } else if (playerMoney < 1) {
+            Menu menu = new Menu(console);
+            console.println("Come back when you have money!!!");
+            menu.selectGame();
         }
     }
+
     public void checkPlayerBet() {
         betAmt = getPlayerBet();
         if(betAmt > player.getPlayerMoney()) {
