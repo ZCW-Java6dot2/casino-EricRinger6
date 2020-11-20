@@ -109,15 +109,6 @@ public class CeeloMenuTest {
     }
 
     @Test
-    public void tryAgain() {
-        CeeloMenu menu = new CeeloMenu();
-        String expected = "press 1 to try again!\n" +
-                "press 2 to exit the game";
-        String actual = menu.tryAgain();
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
     public void playAgain() {
         CeeloMenu menu = new CeeloMenu();
         String expected = "press 1 to play again!\n" +

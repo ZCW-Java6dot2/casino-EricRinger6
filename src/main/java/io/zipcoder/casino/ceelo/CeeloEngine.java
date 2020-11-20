@@ -48,7 +48,7 @@ public class CeeloEngine {
                 whoseTurn = 1;
                 diceTossedComp = Toss();
             }
-            console.println(determineWinner());
+            console.println(determineWinner(comboType));
             if(compareToss(compare, diceTossedPlayer,diceTossedComp) != 2) {
                 isPlaying = tryAgain();
             }
@@ -71,7 +71,7 @@ public class CeeloEngine {
         return playAgain;
     }
 
-    public String determineWinner(){
+    public String determineWinner(Integer comboType){
         String result = "";
         if(comboType == 0){
             result = menu.youLose();
@@ -96,17 +96,11 @@ public class CeeloEngine {
     public void promptRoll() {
         boolean loop = true;
         while (loop) {
-            loop = rolling();
+            Integer userInput = console.getIntegerInput(menu.promptRoll());
+            if (userInput == 1) {
+                loop = false;
+            }
         }
-    }
-
-    public boolean rolling() {
-        boolean loop = true;
-        Integer userInput = console.getIntegerInput(menu.promptRoll());
-        if (userInput == 1) {
-            loop = false;
-        }
-        return loop;
     }
 
     public ArrayList<Integer> Toss(){

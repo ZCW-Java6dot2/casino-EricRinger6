@@ -56,10 +56,6 @@ public class CeeloMenu{
         return "IT'S A TIE! WE GOT A SHOOTOUT! ROLL AGAIN!";
     }
 
-    public String tryAgain(){
-        return "press 1 to try again!\n" +
-                "press 2 to exit the game";
-    }
     public String playAgain(){
         return "press 1 to play again!\n" +
                 "press 2 to exit the game";
