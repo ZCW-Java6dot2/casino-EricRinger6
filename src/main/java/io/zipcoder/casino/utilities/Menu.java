@@ -1,6 +1,7 @@
 package io.zipcoder.casino.utilities;
 
 import io.zipcoder.casino.cardstuff.Blackjack;
+import io.zipcoder.casino.cardstuff.GoFish;
 import io.zipcoder.casino.ceelo.CeeloEngine;
 import io.zipcoder.casino.core.Player;
 
@@ -80,7 +81,8 @@ public class Menu {
                     //play craps
                     break;
                 case 3:
-                    //play Go Fish
+                    GoFish goFish = new GoFish();
+                    goFish.run();
                     break;
                 case 4:
                     ceelo = new CeeloEngine();
