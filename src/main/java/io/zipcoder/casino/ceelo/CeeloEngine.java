@@ -35,6 +35,7 @@ public class CeeloEngine {
         boolean isPlaying = true;
         while (isPlaying) {
             promptRoll();
+            whoseTurn = 0;
             diceTossedPlayer = Toss();
             if(comboType == 0){ //checks if player toss is auto win or lose
                 console.println(menu.youWon());

@@ -59,23 +59,19 @@ public class Craps extends DiceGame implements GamblingGame {
             firstRoll = playAgainBoo();
         }
     }
-    public Integer extraRollBet() {
-        Integer isTrue = 0;
+    public void extraRollBet() {
         getDie();
         if(dieArr.get(0) == dieArr.get(dieArr.size() - 1)) {
-            isTrue = 1;
             console.println("Your first roll was a " + dieArr.get(0).toString() + ", you matched that roll to win in a later round.");
             youWin();
             extraRoll = false;
             firstRoll = playAgainBoo();
         } else if (dieArr.get(dieArr.size() - 1) == 7) {
-            isTrue = 0;
             console.println("Your first roll was a " + dieArr.get(0).toString() + " but you rolled a 7 in a later round.");
             youLose();
             extraRoll = false;
             firstRoll = playAgainBoo();
         }
-        return isTrue;
     }
     public String playAgainStr() {
         String play = console.getStringInput("Would you like to play again?  (Y or N)");
