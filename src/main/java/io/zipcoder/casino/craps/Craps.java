@@ -114,9 +114,15 @@ public class Craps extends DiceGame implements GamblingGame {
             firstRoll = false;
         }
     }
+    public double setBetAmt(double betAmt){
+        this.betAmt = betAmt;
+        return betAmt;
+    }
+
     public Double getBetAmt() {
         return betAmt;
     }
+
     public double getPlayerBet() {
         console.println("You currently have $" + player.getPlayerMoney());
         Double newBet = console.getDoubleInput("How much would you like to bet?");
@@ -125,6 +131,7 @@ public class Craps extends DiceGame implements GamblingGame {
     public double displayPlayerWallet() {
         return player.getPlayerMoney();
     }
+
     public void youWin() {
         player.setPlayerMoney(player.getPlayerMoney() + getBetAmt());
         console.println("Congrats you won $" + getBetAmt());
