@@ -1,8 +1,10 @@
 package io.zipcoder.casino.utilities;
 
 import io.zipcoder.casino.cardstuff.Blackjack;
+import io.zipcoder.casino.cardstuff.GoFish;
 import io.zipcoder.casino.ceelo.CeeloEngine;
 import io.zipcoder.casino.core.Player;
+import io.zipcoder.casino.craps.Craps;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -13,6 +15,7 @@ public class Menu {
     Console console;
     Blackjack blackjack;
     CeeloEngine ceelo;
+    GoFish goFish;
 
     public Menu(Console console) {
         this.console = console;
@@ -77,20 +80,24 @@ public class Menu {
                     console.println("After playing you now have $" + blackjack.displayPlayerWallet());
                     break;
                 case 2:
-                    //play craps
+                    Craps craps = new Craps(newPlayer, console);
+                    craps.gameOn();
                     break;
                 case 3:
-                    //play Go Fish
+                    goFish = new GoFish();
+                    goFish.run();
                     break;
                 case 4:
                     ceelo = new CeeloEngine();
                     ceelo.userPressOne();
+                    break;
                 default:
                     String quitConfirm = console.getStringInput("Are you sure you want to quit? y/n");
                     quitConfirm.toLowerCase();
                     if(quitConfirm.equals("y")) {
                         isPlaying = false;
                     }
+                    console.println("Thanks for playing!");
                     break;
             }
         }

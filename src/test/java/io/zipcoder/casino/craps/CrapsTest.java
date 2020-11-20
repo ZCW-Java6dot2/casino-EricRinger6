@@ -1,74 +1,102 @@
 package io.zipcoder.casino.craps;
-import io.zipcoder.casino.core.DiceGame;
+
 import io.zipcoder.casino.core.Player;
 import io.zipcoder.casino.utilities.Console;
 import org.junit.Assert;
 import org.junit.Test;
-import java.awt.image.AreaAveragingScaleFilter;
-import java.util.ArrayList;
-import static org.junit.Assert.assertEquals;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+
+import static org.junit.Assert.*;
 
 public class CrapsTest {
-    ArrayList<Integer> testArr;
-    Craps craps = new Craps(); // ITS NULL RIGHT NOW if you solve this you can have morre test cases
-    DiceGame diceGame = new DiceGame();
-    Console console = new Console(System.in, System.out);
-    //  Player player = new Player();
+
+    @Test
+    public void gameOn() {
+    }
+
     @Test
     public void getDie() {
-        ArrayList<Integer> dieArr = new ArrayList<Integer>();
-        Integer dieNum = 2;
-        craps.getDie();
-        System.out.println(craps.dieArr);
-        //  Assert.assertTrue(dieArr.size() == dieNum);
-        //        Integer dieNum = 0;
-//        testArr = diceGame.tossAndList(2);
-//        dieNum = testArr.get(0) + testArr.get(1);
-//        boolean expected;
-//        if(dieNum > 1 && dieNum < 13) {
-//            expected = true;
-//        } else {
-//            expected = false;
-//
     }
-  /*  @Test
-    void gameOn() {
-    }
+
     @Test
-    void getDie() {
+    public void rollBet() {
     }
+
     @Test
-    void rollBet() {
+    public void extraRollBet() {
     }
+
     @Test
-    void extraRollBet() {
+    public void playAgainStr() {
     }
+
     @Test
-    void playAgainStr() {
+    public void playAgainBoo() {
+        Craps newGame = new Craps();
+        Console console = new Console(System.in, System.out);
+        Player player = new Player(100.00,"Player1");
+        String expectedOutput = newGame.playAgainStr().toUpperCase();
+        Boolean playerAnswer = expectedOutput.equals("N");
+
+        InputStream sysInBackup = System.in; // backup System.in to restore it later
+        ByteArrayInputStream in = new ByteArrayInputStream("N".getBytes());
+        System.setIn(in);
+
+        Boolean outcome = newGame.playAgainBoo();
+
+        System.setIn(sysInBackup);
+        Assert.assertTrue(outcome);
     }
+
+//    public String playAgainStr() {
+//        String play = console.getStringInput("Would you like to play again?  (Y or N)");
+//        return play;
+//    }
+//    public Boolean playAgainBoo() {
+//        String playStr = playAgainStr().toUpperCase();
+//        return !playStr.equals("N");
+
     @Test
-    void playAgainBoo() {
+    public void playerHasMoney() {
     }
+
     @Test
-    void playerHasMoney() {
+    public void checkPlayerBet() {
     }
+
     @Test
-    void checkPlayerBet() {
+    public void setBetAmt() {
+        Craps craps = new Craps();
+        double bet = 100.00;
+
+        double expectedBet = craps.setBetAmt(bet);
+        double actualBet = craps.getBetAmt();
+
+        Assert.assertEquals(expectedBet, actualBet, .001);
+        }
+
+
+    @Test
+    public void getPlayerBet() {
     }
+
     @Test
-    void getBetAmt() {
+    public void displayPlayerWallet() {
     }
+
     @Test
-    void getPlayerBet() {
+    public void youWin() {
     }
+
     @Test
-    void displayPlayerWallet() {
+    public void youLose() {
     }
+
     @Test
-    void youWin() {
+    public void playerMoneyStart(){
+
     }
-    @Test
-    void youLose() {
-    }*/
 }
