@@ -1,9 +1,8 @@
 package io.zipcoder.casino;
 
-
-
 import io.zipcoder.casino.utilities.Console;
 import io.zipcoder.casino.utilities.Menu;
+
 
 public class Casino {
 
@@ -13,5 +12,6 @@ public class Casino {
         Menu menu = new Menu(console);
         menu.mainMenuLoop();
         // write your tests before you start
+        
     }
 }
